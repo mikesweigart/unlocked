@@ -16,8 +16,10 @@ const navLinks = [
       { label: "Dyslexia", href: "#challenges" },
       { label: "Executive Functioning", href: "#challenges" },
       { label: "Processing Challenges", href: "#challenges" },
+      { label: "Memory & Attention", href: "#challenges" },
     ],
   },
+  { label: "Psych Eval + Cogmed", href: "#psych-eval" },
   { label: "Brain Strengths", href: "#strengths" },
   { label: "About", href: "#about" },
 ];
