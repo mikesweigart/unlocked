@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="pb-28 lg:pb-0">
+      <main className="pb-16 lg:pb-0">
         {/* 1. Hero — the parent's world, the possibility */}
         <HeroSection />
 

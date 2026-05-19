@@ -2,15 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { ArrowRight, X } from "lucide-react";
 
 export default function MobileCTABar() {
   const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Appear after the hero section — roughly 80vh
       setVisible(window.scrollY > window.innerHeight * 0.75);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -19,7 +18,7 @@ export default function MobileCTABar() {
 
   return (
     <AnimatePresence>
-      {visible && (
+      {visible && !dismissed && (
         <motion.div
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
@@ -28,33 +27,21 @@ export default function MobileCTABar() {
           className="fixed bottom-0 left-0 right-0 z-50 lg:hidden"
           style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
-          {/* Gradient fade above the bar so content doesn't hard-cut */}
-          <div className="h-6 bg-gradient-to-t from-white/80 to-transparent pointer-events-none" />
-
-          <div className="bg-white border-t border-gray-blue shadow-[0_-8px_32px_-4px_rgba(27,42,74,0.12)] px-4 pt-3 pb-4 space-y-2">
-            {/* Primary CTA */}
+          <div className="bg-white/95 backdrop-blur-sm border-t border-gray-blue shadow-[0_-4px_16px_-2px_rgba(27,42,74,0.10)] px-3 py-2.5 flex items-center gap-2">
             <a
               href="#contact"
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-base hover:shadow-lg active:scale-[0.98] transition-all duration-200 min-h-[52px]"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-sm active:scale-[0.98] transition-all duration-200 min-h-[44px]"
             >
               Start Free Consultation
-              <ArrowRight className="w-4 h-4 shrink-0" />
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </a>
-
-            {/* Secondary row */}
-            <div className="flex items-center gap-2">
-              <Link
-                href="/assessment"
-                className="flex-1 flex items-center justify-center gap-1.5 py-3 rounded-xl border-2 border-teal/40 text-teal font-semibold text-sm active:scale-[0.98] transition-all duration-200 min-h-[44px]"
-              >
-                <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                Free Brain Strengths Quiz
-              </Link>
-            </div>
-
-            <p className="text-center text-xs text-navy/35 leading-none">
-              Free · Confidential · No obligation
-            </p>
+            <button
+              onClick={() => setDismissed(true)}
+              aria-label="Dismiss"
+              className="flex items-center justify-center w-10 h-10 rounded-xl text-navy/30 hover:text-navy/60 hover:bg-gray-blue/60 transition-colors duration-150 shrink-0"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
         </motion.div>
       )}
