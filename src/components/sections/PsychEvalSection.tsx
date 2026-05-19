@@ -50,7 +50,7 @@ const evalIndices: EvalIndex[] = [
     schoolImpact:
       "Affects multi-step instructions, mental math, reading comprehension, and following classroom discussions in real time. Often the hidden driver behind homework battles.",
     whatWeDo:
-      "Working memory is directly trainable. Evidence-based cognitive training programs demonstrate gains comparable to two years of typical cognitive development. We assess your child's profile to determine if this is the right intervention.",
+      "Working memory is directly trainable. We use Cogmed — the world's most evidence-backed working memory program — with 120+ peer-reviewed studies showing gains comparable to two years of cognitive development. We assess your child's profile to determine if Cogmed is the right fit.",
     trainable: true,
   },
   {
@@ -338,11 +338,20 @@ export default function PsychEvalSection() {
                   Working memory is not fixed. It can be trained.
                 </p>
                 <p className="text-navy/65 text-sm sm:text-base leading-relaxed">
-                  Peer-reviewed research across 200,000+ students demonstrates that targeted
-                  working memory training produces measurable, lasting improvements — with gains
-                  comparable to two years of typical cognitive development. We review your
-                  child&apos;s evaluation profile and determine whether this evidence-based
-                  intervention is the right fit for their specific needs.
+                  We use{" "}
+                  <a
+                    href="https://www.cogmed.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-teal font-semibold hover:underline"
+                  >
+                    Cogmed
+                  </a>
+                  {" "}— the most rigorously researched working memory training program available,
+                  with 120+ peer-reviewed studies and 200,000+ users across 20 countries. Research
+                  shows gains comparable to two years of typical cognitive development. We review
+                  your child&apos;s evaluation profile and determine whether Cogmed is the right
+                  fit for their specific needs.
                 </p>
               </div>
             </div>

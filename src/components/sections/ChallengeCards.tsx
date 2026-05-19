@@ -171,7 +171,7 @@ const challenges: Challenge[] = [
       "Emotional memory — deep recall of meaningful events",
     ],
     whatHelps: [
-      "Targeted working memory training — evidence-based, directly trainable",
+      "Cogmed working memory training — 120+ studies, directly trainable",
       "Chunking information into smaller pieces",
       "Multi-sensory encoding strategies",
       "Written reminders and visual systems",
