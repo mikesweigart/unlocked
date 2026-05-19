@@ -301,13 +301,13 @@ function WelcomeScreen({ onStart }: { onStart: () => void }) {
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/10 text-teal text-sm font-semibold">
           Free · 3 Minutes · No Clinical Labels
         </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy leading-tight">
           Discover Your Child&apos;s{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
             Brain Strengths
           </span>
         </h1>
-        <p className="text-lg text-navy/65 leading-relaxed">
+        <p className="text-base sm:text-lg text-navy/65 leading-relaxed">
           This 3-minute reflection will help you see what makes your child&apos;s mind
           remarkable. No diagnosis needed. No pressure. Just insight.
         </p>
@@ -407,7 +407,7 @@ function QuestionScreen({
             className={cn(
               "w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-200 text-sm font-medium leading-relaxed",
               selectedChoice === i
-                ? "border-teal bg-teal/8 text-navy"
+                ? "border-teal bg-teal/10 text-navy"
                 : "border-gray-blue bg-white text-navy/70 hover:border-teal/40 hover:text-navy"
             )}
           >
@@ -432,7 +432,7 @@ function QuestionScreen({
       <div className="flex items-center justify-between pt-2">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-navy/50 hover:text-navy text-sm font-medium transition-colors duration-150"
+          className="flex items-center gap-2 text-navy/50 hover:text-navy text-sm font-medium transition-colors duration-150 min-h-[44px] px-1"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
@@ -729,7 +729,7 @@ function CaptureScreen({
                 onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="Your name"
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
               />
             </div>
             <div className="space-y-1.5">
@@ -740,7 +740,7 @@ function CaptureScreen({
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@email.com"
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
               />
             </div>
             <motion.button
@@ -822,7 +822,7 @@ export default function AssessmentPage() {
           </Link>
           <Link
             href="/"
-            className="p-2 rounded-lg text-navy/40 hover:text-navy hover:bg-gray-blue transition-colors duration-150"
+            className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-lg text-navy/40 hover:text-navy hover:bg-gray-blue transition-colors duration-150"
             aria-label="Close assessment"
           >
             <X className="w-5 h-5" />
@@ -831,7 +831,7 @@ export default function AssessmentPage() {
       </div>
 
       {/* Content */}
-      <div className="pt-24 pb-16 px-6">
+      <div className="pt-24 pb-16 px-4 sm:px-6">
         <AnimatePresence mode="wait">
           {phase === "welcome" && (
             <motion.div key="welcome">

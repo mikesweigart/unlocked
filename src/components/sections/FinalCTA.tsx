@@ -24,27 +24,27 @@ export default function FinalCTA() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-navy to-[#152038] relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 bg-gradient-to-br from-navy to-[#152038] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-teal/8 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-blue/8 blur-3xl pointer-events-none" />
 
-      <div ref={ref} className="max-w-4xl mx-auto px-6 relative z-10">
+      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-12"
         >
           {/* Copy */}
           <motion.div variants={fadeUp} className="text-center space-y-6">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
               You Don&apos;t Have to Navigate This{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-gold">
                 Alone.
               </span>
             </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
               Let&apos;s find your child&apos;s strengths — together. Schedule a free, no-pressure
               conversation. Just clarity, compassion, and a clear path forward.
             </p>
@@ -53,7 +53,7 @@ export default function FinalCTA() {
           {/* Form */}
           <motion.div
             variants={fadeUp}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-10"
+            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-5 sm:p-8 md:p-10"
           >
             <AnimatePresence mode="wait">
               {submitted ? (
@@ -105,7 +105,7 @@ export default function FinalCTA() {
                         onChange={(e) => setName(e.target.value)}
                         required
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -118,7 +118,7 @@ export default function FinalCTA() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         placeholder="you@email.com"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
                       />
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export default function FinalCTA() {
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="(555) 000-0000"
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
                       />
                     </div>
                     <div className="space-y-1.5">

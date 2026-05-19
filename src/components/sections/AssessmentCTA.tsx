@@ -10,8 +10,8 @@ export default function AssessmentCTA() {
   const { ref, isInView } = useScrollReveal(0.1);
 
   return (
-    <section id="assessment" className="py-20 bg-gradient-to-r from-teal/10 via-blue/5 to-teal/10 border-y border-teal/15">
-      <div ref={ref} className="max-w-4xl mx-auto px-6">
+    <section id="assessment" className="py-14 sm:py-20 bg-gradient-to-r from-teal/10 via-blue/5 to-teal/10 border-y border-teal/15">
+      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -42,7 +42,7 @@ export default function AssessmentCTA() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-lg hover:shadow-xl hover:shadow-teal/25 transition-all duration-200 cursor-pointer"
+                className="flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-base sm:text-lg hover:shadow-xl hover:shadow-teal/25 transition-all duration-200 cursor-pointer min-h-[52px]"
               >
                 <Brain className="w-5 h-5" />
                 Take the Free Assessment

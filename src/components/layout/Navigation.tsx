@@ -19,7 +19,6 @@ const navLinks = [
     ],
   },
   { label: "Brain Strengths", href: "#strengths" },
-  { label: "Resources", href: "#resources" },
   { label: "About", href: "#about" },
 ];
 
@@ -39,6 +38,8 @@ export default function Navigation() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  const closeMenu = () => setMobileOpen(false);
+
   return (
     <>
       <motion.header
@@ -52,11 +53,11 @@ export default function Navigation() {
             : "bg-transparent"
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal to-blue flex items-center justify-center">
-              <Brain className="w-4.5 h-4.5 text-white" />
+              <Brain className="w-4 h-4 text-white" />
             </div>
             <span
               className={cn(
@@ -69,7 +70,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <div
                 key={link.label}
@@ -80,7 +81,7 @@ export default function Navigation() {
                 <a
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors duration-200 relative group",
+                    "text-sm font-medium transition-colors duration-200 relative group py-2",
                     scrolled ? "text-navy hover:text-teal" : "text-white/90 hover:text-white"
                   )}
                 >
@@ -94,7 +95,7 @@ export default function Navigation() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 8, scale: 0.97 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-white rounded-xl shadow-lg border border-gray-blue overflow-hidden"
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-white rounded-xl shadow-lg border border-gray-blue overflow-hidden"
                     >
                       {link.dropdown.map((item) => (
                         <a
@@ -113,7 +114,7 @@ export default function Navigation() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href="#assessment"
               className={cn(
@@ -131,13 +132,14 @@ export default function Navigation() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button — min 44x44 touch target */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
             className={cn(
-              "lg:hidden p-2 rounded-lg transition-colors duration-200",
-              scrolled ? "text-navy" : "text-white"
+              "lg:hidden flex items-center justify-center w-11 h-11 rounded-xl transition-colors duration-200",
+              scrolled ? "text-navy hover:bg-gray-blue" : "text-white hover:bg-white/10"
             )}
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -164,48 +166,55 @@ export default function Navigation() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-navy/60 backdrop-blur-sm lg:hidden"
-              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 z-40 bg-navy/70 backdrop-blur-sm lg:hidden"
+              onClick={closeMenu}
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1.0] }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-80 bg-white shadow-2xl lg:hidden flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-50 w-[min(320px,100vw)] bg-white shadow-2xl lg:hidden flex flex-col"
+              style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
             >
-              <div className="flex items-center justify-between p-6 border-b border-gray-blue">
+              <div className="flex items-center justify-between px-6 h-16 border-b border-gray-blue shrink-0">
                 <span className="text-xl font-bold text-navy">
                   Unlock<span className="text-teal">Ed</span>
                 </span>
-                <button onClick={() => setMobileOpen(false)} aria-label="Close menu">
-                  <X className="w-6 h-6 text-navy" />
+                <button
+                  onClick={closeMenu}
+                  aria-label="Close menu"
+                  className="flex items-center justify-center w-11 h-11 rounded-xl text-navy/50 hover:text-navy hover:bg-gray-blue transition-colors duration-150"
+                >
+                  <X className="w-6 h-6" />
                 </button>
               </div>
-              <nav className="flex-1 overflow-y-auto p-6 space-y-1">
+
+              <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center px-4 py-3 rounded-lg text-navy font-medium hover:bg-gray-blue hover:text-teal transition-colors duration-150"
+                    onClick={closeMenu}
+                    className="flex items-center px-4 py-3.5 rounded-xl text-navy font-medium hover:bg-gray-blue hover:text-teal transition-colors duration-150 min-h-[52px]"
                   >
                     {link.label}
                   </a>
                 ))}
               </nav>
-              <div className="p-6 space-y-3 border-t border-gray-blue">
+
+              <div className="px-4 pb-6 pt-4 space-y-3 border-t border-gray-blue shrink-0">
                 <a
                   href="#assessment"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center w-full px-5 py-3 rounded-lg border-2 border-teal text-teal font-semibold hover:bg-teal hover:text-white transition-all duration-200"
+                  onClick={closeMenu}
+                  className="flex items-center justify-center w-full px-5 py-4 rounded-xl border-2 border-teal text-teal font-semibold hover:bg-teal hover:text-white transition-all duration-200 min-h-[52px]"
                 >
                   Free Brain Strengths Assessment
                 </a>
                 <a
                   href="#contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center w-full px-5 py-3 rounded-lg bg-gradient-to-r from-teal to-blue text-white font-semibold hover:shadow-lg transition-all duration-200"
+                  onClick={closeMenu}
+                  className="flex items-center justify-center w-full px-5 py-4 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold hover:shadow-lg transition-all duration-200 min-h-[52px]"
                 >
                   Schedule Consultation
                 </a>

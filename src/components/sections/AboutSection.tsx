@@ -16,13 +16,13 @@ export default function AboutSection() {
   const { ref, isInView } = useScrollReveal(0.1);
 
   return (
-    <section id="about" className="py-24 bg-white">
-      <div ref={ref} className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-16 sm:py-24 bg-white">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center"
         >
           {/* Left — copy */}
           <motion.div variants={fadeUp} className="space-y-6">
@@ -31,7 +31,7 @@ export default function AboutSection() {
                 <Heart className="w-4 h-4 text-teal" />
                 About UnlockEd
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy leading-tight">
                 We Started Here Because{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
                   We&apos;ve Been There.

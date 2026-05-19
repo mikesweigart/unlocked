@@ -60,13 +60,13 @@ export default function EmpathySection() {
   return (
     <>
       {/* You Are Not Alone */}
-      <section className="py-24 bg-white" id="empathy">
-        <div ref={ref} className="max-w-6xl mx-auto px-6">
+      <section className="py-16 sm:py-24 bg-white" id="empathy">
+        <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="space-y-16"
+            className="space-y-10 sm:space-y-16"
           >
             {/* Opening empathy */}
             <motion.div
@@ -77,15 +77,13 @@ export default function EmpathySection() {
                 <Heart className="w-4 h-4" />
                 You&apos;re not alone in this
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
-                If You&apos;re Feeling Overwhelmed
-                <br />
-                Right Now —{" "}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy leading-tight">
+                If You&apos;re Feeling Overwhelmed Right Now —{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
                   That&apos;s Completely Normal.
                 </span>
               </h2>
-              <p className="text-lg text-navy/70 leading-relaxed">
+              <p className="text-base sm:text-lg text-navy/70 leading-relaxed">
                 Thousands of parents have stood exactly where you are — unsure,
                 worried, searching for answers. And the research is clear: with
                 the right support, every learner can thrive.
@@ -95,7 +93,7 @@ export default function EmpathySection() {
             {/* Stats */}
             <motion.div
               variants={staggerContainer}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-12 py-12 border-y border-gray-blue"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 py-8 sm:py-12 border-y border-gray-blue"
             >
               <motion.div variants={fadeUp}>
                 <StatCounter
@@ -158,19 +156,19 @@ function ProblemSection() {
   const { ref, isInView } = useScrollReveal();
 
   return (
-    <section className="py-24 bg-navy" id="problem">
-      <div ref={ref} className="max-w-5xl mx-auto px-6">
+    <section className="py-16 sm:py-24 bg-navy" id="problem">
+      <div ref={ref} className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="space-y-12 text-center"
+          className="space-y-8 sm:space-y-12 text-center"
         >
           <motion.div variants={fadeUp} className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
               The Real Problem Isn&apos;t Your Child.
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
               It&apos;s that most approaches focus on{" "}
               <span className="text-coral font-semibold">what&apos;s wrong</span>{" "}
               instead of{" "}

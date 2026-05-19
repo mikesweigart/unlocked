@@ -78,23 +78,23 @@ export default function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section className="py-24 bg-white" id="testimonials">
-      <div ref={ref} className="max-w-4xl mx-auto px-6">
+    <section className="py-16 sm:py-24 bg-white" id="testimonials">
+      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-12"
         >
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center space-y-3">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy leading-tight">
               Real Families.{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
                 Real Transformation.
               </span>
             </h2>
-            <p className="text-navy/60 text-lg">
+            <p className="text-navy/60 text-base sm:text-lg">
               These stories aren&apos;t about UnlockEd. They&apos;re about your child&apos;s potential.
             </p>
           </motion.div>
@@ -106,7 +106,7 @@ export default function Testimonials() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <div className="bg-gray-blue/50 rounded-3xl p-8 md:p-12 min-h-[280px] flex flex-col justify-between">
+            <div className="bg-gray-blue/50 rounded-3xl p-6 sm:p-8 md:p-12 min-h-[280px] flex flex-col justify-between">
               <Quote className="w-10 h-10 text-teal/30 mb-6" />
 
               <AnimatePresence mode="wait">
@@ -118,7 +118,7 @@ export default function Testimonials() {
                   transition={{ duration: 0.45 }}
                   className="space-y-6"
                 >
-                  <p className="text-xl md:text-2xl text-navy/85 leading-relaxed font-medium italic">
+                  <p className="text-base sm:text-xl md:text-2xl text-navy/85 leading-relaxed font-medium italic">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="flex flex-wrap items-center gap-4">

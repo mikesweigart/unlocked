@@ -42,13 +42,13 @@ export default function ParentGuide() {
   };
 
   return (
-    <section id="guide" className="py-24 bg-gray-blue/40">
-      <div ref={ref} className="max-w-6xl mx-auto px-6">
+    <section id="guide" className="py-16 sm:py-24 bg-gray-blue/40">
+      <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center"
         >
           {/* Left — Guide mockup */}
           <motion.div variants={fadeLeft} className="flex justify-center">
@@ -121,7 +121,7 @@ export default function ParentGuide() {
                 <Download className="w-4 h-4" />
                 Free Parent Guide
               </div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-navy leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy leading-tight">
                 Your Roadmap From{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
                   Overwhelm to Confidence
@@ -175,7 +175,7 @@ export default function ParentGuide() {
                   onSubmit={handleSubmit}
                   className="space-y-4"
                 >
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="space-y-1.5">
                       <label
                         htmlFor="guide-name"
@@ -190,7 +190,7 @@ export default function ParentGuide() {
                         onChange={(e) => setName(e.target.value)}
                         required
                         placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue bg-white text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue bg-white text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -207,7 +207,7 @@ export default function ParentGuide() {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                         placeholder="you@email.com"
-                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue bg-white text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-sm"
+                        className="w-full px-4 py-3 rounded-xl border-2 border-gray-blue bg-white text-navy placeholder-navy/30 focus:border-teal focus:outline-none transition-colors duration-200 text-base"
                       />
                     </div>
                   </div>
