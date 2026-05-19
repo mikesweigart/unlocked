@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
 import { Sparkles, Clock, RefreshCw, GraduationCap, ArrowRight } from "lucide-react";
@@ -18,7 +18,6 @@ const journeys = [
     color: "text-teal",
     bg: "bg-teal/10",
     activeBorder: "border-teal",
-    scrollTo: "#empathy",
   },
   {
     id: "suspected",
@@ -30,7 +29,6 @@ const journeys = [
     color: "text-blue",
     bg: "bg-blue/10",
     activeBorder: "border-blue",
-    scrollTo: "#challenges",
   },
   {
     id: "not-working",
@@ -42,7 +40,6 @@ const journeys = [
     color: "text-gold",
     bg: "bg-gold/10",
     activeBorder: "border-gold",
-    scrollTo: "#how-it-works",
   },
   {
     id: "teen",
@@ -54,21 +51,43 @@ const journeys = [
     color: "text-lavender",
     bg: "bg-lavender/10",
     activeBorder: "border-lavender",
-    scrollTo: "#strengths",
   },
 ];
+
+// Personalized context that appears when a card is selected
+const contexts: Record<
+  string,
+  { headline: string; sub: string; cta: string; note: string }
+> = {
+  "new-diagnosis": {
+    headline: "Your first step is clarity — not a treatment plan.",
+    sub: "One conversation turns the diagnosis from a verdict into a roadmap. We'll explain what's actually happening in your child's brain — in plain language, no clinical jargon.",
+    cta: "Schedule Your Clarity Session",
+    note: "Free · No pressure · We explain everything plainly",
+  },
+  suspected: {
+    headline: "Your instincts deserve a real answer.",
+    sub: "Let's talk through exactly what you've been observing — and figure out together what it might mean. You've been carrying this alone long enough.",
+    cta: "Talk Through What You're Seeing",
+    note: "Free · Confidential · No diagnosis required to start",
+  },
+  "not-working": {
+    headline: "A second perspective can change everything.",
+    sub: "If the current support isn't moving the needle, something is missing — not wrong. Let's find what it is without starting over or blaming anyone.",
+    cta: "Find What's Missing",
+    note: "Free · We work alongside existing support teams",
+  },
+  teen: {
+    headline: "The teenage brain is still remarkably changeable.",
+    sub: "There's still time to rewrite the story — and build the real skills your teenager needs before the stakes of college and independence arrive.",
+    cta: "Build a Teen Strategy",
+    note: "Free · Age-appropriate · Self-advocacy focused",
+  },
+};
 
 export default function JourneySelector() {
   const { ref, isInView } = useScrollReveal(0.1);
   const [selected, setSelected] = useState<string | null>(null);
-
-  const handleSelect = (journey: (typeof journeys)[0]) => {
-    setSelected(journey.id);
-    setTimeout(() => {
-      const el = document.querySelector(journey.scrollTo);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 350);
-  };
 
   return (
     <section className="py-16 sm:py-20 bg-white border-b border-gray-blue">
@@ -88,8 +107,8 @@ export default function JourneySelector() {
               Where Are You Right Now?
             </h2>
             <p className="text-navy/55 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-              Every family&apos;s starting point looks different. Tell us where you are
-              — we&apos;ll show you exactly where to begin.
+              Every family&apos;s starting point looks different. Tell us where you
+              are — we&apos;ll show you exactly where to begin.
             </p>
           </motion.div>
 
@@ -107,7 +126,11 @@ export default function JourneySelector() {
                   variants={fadeUp}
                   whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => handleSelect(journey)}
+                  onClick={() =>
+                    setSelected((prev) =>
+                      prev === journey.id ? null : journey.id
+                    )
+                  }
                   className={cn(
                     "group text-left p-5 sm:p-6 rounded-2xl border-2 transition-all duration-300 space-y-3",
                     isActive
@@ -150,9 +173,53 @@ export default function JourneySelector() {
             })}
           </motion.div>
 
-          <motion.p variants={fadeUp} className="text-center text-xs text-navy/30">
-            Not sure which fits? Keep reading — we cover every part of the journey.
-          </motion.p>
+          {/* Personalized CTA — animates in when a card is selected */}
+          <AnimatePresence mode="wait">
+            {selected && contexts[selected] ? (
+              <motion.div
+                key={selected}
+                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
+                className="bg-navy rounded-2xl sm:rounded-3xl p-6 sm:p-8 space-y-5"
+              >
+                <div className="space-y-2">
+                  <h3 className="text-white font-extrabold text-lg sm:text-xl leading-tight">
+                    {contexts[selected].headline}
+                  </h3>
+                  <p className="text-white/65 text-sm sm:text-base leading-relaxed">
+                    {contexts[selected].sub}
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-sm sm:text-base hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 min-h-[48px]"
+                  >
+                    {contexts[selected].cta}
+                    <ArrowRight className="w-4 h-4 shrink-0" />
+                  </a>
+                  <p className="text-white/40 text-xs leading-relaxed">
+                    {contexts[selected].note}
+                  </p>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.p
+                key="hint"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-center text-xs text-navy/30"
+              >
+                Not sure which fits? Keep reading — we cover every part of the
+                journey.
+              </motion.p>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>

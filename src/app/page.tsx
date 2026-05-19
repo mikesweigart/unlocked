@@ -1,4 +1,5 @@
 import Navigation from "@/components/layout/Navigation";
+import MobileCTABar from "@/components/layout/MobileCTABar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import JourneySelector from "@/components/sections/JourneySelector";
@@ -6,10 +7,10 @@ import EmpathySection from "@/components/sections/EmpathySection";
 import ChildInnerWorld from "@/components/sections/ChildInnerWorld";
 import ChallengeCards from "@/components/sections/ChallengeCards";
 import BrainStrengths from "@/components/sections/BrainStrengths";
-import HowItWorks from "@/components/sections/HowItWorks";
-import ThirtyDays from "@/components/sections/ThirtyDays";
 import AssessmentCTA from "@/components/sections/AssessmentCTA";
+import HowItWorks from "@/components/sections/HowItWorks";
 import Testimonials from "@/components/sections/Testimonials";
+import ThirtyDays from "@/components/sections/ThirtyDays";
 import ParentGuide from "@/components/sections/ParentGuide";
 import AboutSection from "@/components/sections/AboutSection";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -18,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="pb-28 lg:pb-0">
         {/* 1. Hero — the parent's world, the possibility */}
         <HeroSection />
 
@@ -37,17 +38,17 @@ export default function Home() {
         {/* 6. Brain Strengths — the reframe: same wiring, different story */}
         <BrainStrengths />
 
-        {/* 7. How It Works — the plan, simple and clear */}
-        <HowItWorks />
-
-        {/* 8. Your First 30 Days — process transparency, trust building */}
-        <ThirtyDays />
-
-        {/* 9. Assessment CTA — take action, discover strengths */}
+        {/* 7. Assessment CTA — peak curiosity moment right after the reframe */}
         <AssessmentCTA />
 
-        {/* 10. Testimonials — social proof with transformation arcs */}
+        {/* 8. How It Works — the plan, simple and clear */}
+        <HowItWorks />
+
+        {/* 9. Testimonials — social proof with transformation arcs */}
         <Testimonials />
+
+        {/* 10. Your First 30 Days — process evidence, trust building */}
+        <ThirtyDays />
 
         {/* 11. Parent Guide — free resource, lead capture */}
         <ParentGuide />
@@ -59,6 +60,7 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+      <MobileCTABar />
     </>
   );
 }

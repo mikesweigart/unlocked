@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, X, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface StrengthNode {
@@ -166,12 +167,17 @@ function StrengthInfoPanel({ strength, onClose }: { strength: StrengthNode; onCl
         <p className="text-white/70 text-sm leading-relaxed">{strength.howUnlockEd}</p>
       </div>
 
-      <a
-        href="#assessment"
-        className="inline-flex items-center gap-2 text-sm font-semibold text-teal hover:text-[#7ecdc6] transition-colors duration-150"
-      >
-        Discover your child&apos;s strengths <ArrowRight className="w-4 h-4" />
-      </a>
+      <div className="pt-1 space-y-2">
+        <Link
+          href="/assessment"
+          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-sm hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 min-h-[44px]"
+        >
+          <Sparkles className="w-4 h-4 shrink-0" />
+          Find out your child&apos;s #1 strength
+          <ArrowRight className="w-4 h-4 shrink-0" />
+        </Link>
+        <p className="text-white/35 text-xs">3 minutes · Free · No account needed</p>
+      </div>
     </motion.div>
   );
 }
@@ -189,13 +195,17 @@ function IdlePanel() {
         Neuroplasticity means your brain changes and grows throughout life. These strengths
         can be trained and amplified with the right support.
       </p>
-      <a
-        href="#assessment"
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-sm hover:shadow-lg transition-all duration-200"
-      >
-        Take the Free Brain Strengths Assessment
-        <ArrowRight className="w-4 h-4" />
-      </a>
+      <div className="space-y-2">
+        <Link
+          href="/assessment"
+          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-sm hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 min-h-[48px]"
+        >
+          <Sparkles className="w-4 h-4 shrink-0" />
+          Take the Free Brain Strengths Quiz
+          <ArrowRight className="w-4 h-4 shrink-0" />
+        </Link>
+        <p className="text-white/35 text-xs">3 minutes · Free · Discover your child&apos;s profile</p>
+      </div>
     </motion.div>
   );
 }
