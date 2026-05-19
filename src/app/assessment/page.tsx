@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowLeft, Brain, Check, Download, RotateCcw, X } from "lucide-react";
+import { ArrowRight, ArrowLeft, Brain, Check, Download, RotateCcw, X, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -245,7 +245,7 @@ const strengthMeta: Record<StrengthKey, { label: string; color: string; descript
 
 // ─── Assessment state machine ─────────────────────────────────────────────────
 
-type Phase = "welcome" | "questions" | "processing" | "results" | "capture";
+type Phase = "welcome" | "questions" | "processing" | "teaser" | "capture" | "results";
 
 interface Results {
   primary: StrengthKey[];
@@ -770,6 +770,129 @@ function CaptureScreen({
   );
 }
 
+// ─── Teaser screen ────────────────────────────────────────────────────────────
+
+function TeaserScreen({
+  results,
+  onUnlock,
+  onSkip,
+}: {
+  results: Results;
+  onUnlock: () => void;
+  onSkip: () => void;
+}) {
+  const topKey = results.primary[0];
+  const meta = strengthMeta[topKey];
+  const maxScore = Math.max(...Object.values(results.scores));
+  const pct = maxScore > 0 ? (results.scores[topKey] / maxScore) * 100 : 0;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="max-w-2xl mx-auto space-y-8"
+    >
+      {/* Header */}
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/10 text-teal text-sm font-semibold">
+          <Brain className="w-4 h-4" />
+          Your Child&apos;s #1 Brain Strength
+        </div>
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-navy leading-tight">
+          Your Child&apos;s Mind Is Wired For This
+        </h2>
+        <p className="text-navy/55 text-sm leading-relaxed">
+          Based on your 15 answers, here&apos;s the strongest emerging pattern we found.
+        </p>
+      </div>
+
+      {/* Top strength — fully unlocked */}
+      <div
+        className="rounded-2xl border-2 p-6 sm:p-7 space-y-4"
+        style={{ borderColor: `${meta.color}55`, backgroundColor: `${meta.color}0C` }}
+      >
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: meta.color }} />
+            <span className="font-bold text-navy text-sm sm:text-base">{meta.label}</span>
+          </div>
+          <div className="w-24 h-1.5 bg-gray-blue rounded-full overflow-hidden shrink-0">
+            <motion.div
+              className="h-full rounded-full"
+              style={{ backgroundColor: meta.color }}
+              initial={{ width: 0 }}
+              animate={{ width: `${pct}%` }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+            />
+          </div>
+        </div>
+        <p className="text-navy/65 text-sm leading-relaxed">{meta.description}</p>
+        <div className="pt-3 border-t border-navy/10">
+          <p className="text-navy/75 text-sm leading-relaxed">{meta.detail}</p>
+        </div>
+      </div>
+
+      {/* Locked strengths */}
+      <div className="space-y-3">
+        <p className="text-xs font-bold text-navy/35 uppercase tracking-widest">
+          2 More Primary Strengths Identified
+        </p>
+        <div className="space-y-3">
+          {results.primary.slice(1, 3).map((key) => {
+            const m = strengthMeta[key];
+            return (
+              <div key={key} className="relative rounded-2xl border-2 border-gray-blue bg-white p-5 overflow-hidden min-h-[88px]">
+                {/* Blurred preview */}
+                <div className="opacity-15 blur-sm space-y-2 pointer-events-none select-none">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: m.color }} />
+                    <span className="font-bold text-navy text-sm">{m.label}</span>
+                  </div>
+                  <p className="text-navy/60 text-sm">{m.description}</p>
+                </div>
+                {/* Lock overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center space-y-1.5">
+                    <div className="flex justify-center">
+                      <div className="w-9 h-9 rounded-full bg-gray-blue flex items-center justify-center">
+                        <Lock className="w-4 h-4 text-navy/35" />
+                      </div>
+                    </div>
+                    <p className="text-xs text-navy/40 font-semibold">Unlock with free report</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* CTAs */}
+      <div className="space-y-3">
+        <motion.button
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
+          onClick={onUnlock}
+          className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-base hover:shadow-xl transition-all duration-200 min-h-[52px]"
+        >
+          <Download className="w-4 h-4" />
+          Unlock My Child&apos;s Full Strengths Profile — Free
+        </motion.button>
+        <p className="text-center text-xs text-navy/35">
+          Complete 3-strength profile + 25-page Parent Guide · No credit card · Instant
+        </p>
+        <button
+          onClick={onSkip}
+          className="w-full text-navy/40 text-sm hover:text-navy/60 transition-colors duration-150 py-2"
+        >
+          Skip — I&apos;ll just view my top result for now
+        </button>
+      </div>
+    </motion.div>
+  );
+}
+
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function AssessmentPage() {
@@ -794,7 +917,7 @@ export default function AssessmentPage() {
       setTimeout(() => {
         const r = calculateResults(answers);
         setResults(r);
-        setPhase("results");
+        setPhase("teaser");
       }, 3000);
     }
   };
@@ -859,12 +982,12 @@ export default function AssessmentPage() {
             </motion.div>
           )}
 
-          {phase === "results" && results && (
-            <motion.div key="results">
-              <ResultsScreen
+          {phase === "teaser" && results && (
+            <motion.div key="teaser">
+              <TeaserScreen
                 results={results}
-                onCapture={() => setPhase("capture")}
-                onRetake={handleRetake}
+                onUnlock={() => setPhase("capture")}
+                onSkip={() => setPhase("results")}
               />
             </motion.div>
           )}
@@ -874,6 +997,16 @@ export default function AssessmentPage() {
               <CaptureScreen
                 onSubmit={() => setPhase("results")}
                 onSkip={() => setPhase("results")}
+              />
+            </motion.div>
+          )}
+
+          {phase === "results" && results && (
+            <motion.div key="results">
+              <ResultsScreen
+                results={results}
+                onCapture={() => setPhase("capture")}
+                onRetake={handleRetake}
               />
             </motion.div>
           )}
