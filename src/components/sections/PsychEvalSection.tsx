@@ -13,6 +13,10 @@ import {
   Target,
   BarChart2,
   ArrowRight,
+  ExternalLink,
+  FlaskConical,
+  TrendingUp,
+  GraduationCap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -321,39 +325,113 @@ export default function PsychEvalSection() {
             )}
           </AnimatePresence>
 
-          {/* Working Memory trainable callout */}
+          {/* Why We Use Cogmed */}
           <motion.div
             variants={fadeUp}
-            className="bg-gradient-to-r from-blue/10 via-teal/10 to-blue/10 border border-teal/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8"
+            className="bg-gradient-to-br from-blue/10 via-teal/10 to-blue/10 border border-teal/20 rounded-2xl sm:rounded-3xl p-6 sm:p-8 space-y-6"
           >
-            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            {/* Header */}
+            <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-teal/15 border border-teal/25 flex items-center justify-center shrink-0">
                 <Brain className="w-6 h-6 text-teal" />
               </div>
-              <div className="space-y-2">
-                <p className="text-xs font-bold text-teal uppercase tracking-widest">
-                  The Most Important Finding From 20+ Years of Cognitive Research
+              <div>
+                <p className="text-xs font-bold text-teal uppercase tracking-widest mb-1">
+                  Our Working Memory Training Tool
                 </p>
-                <p className="text-navy font-extrabold text-base sm:text-xl leading-snug">
-                  Working memory is not fixed. It can be trained.
+                <h3 className="text-navy font-extrabold text-xl sm:text-2xl leading-snug">
+                  Why We Use Cogmed
+                </h3>
+              </div>
+            </div>
+
+            {/* Why we chose it */}
+            <p className="text-navy/70 text-sm sm:text-base leading-relaxed">
+              We spent significant time evaluating every working memory and cognitive training
+              program available before choosing{" "}
+              <a
+                href="https://www.cogmed.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-teal font-semibold hover:underline"
+              >
+                Cogmed
+              </a>
+              . Most brain training apps make sweeping claims backed by little more than
+              marketing. Cogmed is the exception — it&apos;s the only digital cognitive training
+              tool shown through rigorous, independent randomized controlled trials to improve
+              attention in everyday life, not just on the training tasks themselves. For our
+              students and families, that distinction is everything.
+            </p>
+
+            {/* Three pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white/70 rounded-xl p-4 sm:p-5 border border-teal/15 space-y-2">
+                <div className="flex items-center gap-2 mb-1">
+                  <FlaskConical className="w-4 h-4 text-blue shrink-0" />
+                  <p className="text-xs font-bold text-blue uppercase tracking-wider">
+                    Born from Neuroscience
+                  </p>
+                </div>
+                <p className="text-navy font-bold text-sm leading-snug">
+                  Developed at the Karolinska Institute
                 </p>
-                <p className="text-navy/65 text-sm sm:text-base leading-relaxed">
-                  We use{" "}
-                  <a
-                    href="https://www.cogmed.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-teal font-semibold hover:underline"
-                  >
-                    Cogmed
-                  </a>
-                  {" "}— the most rigorously researched working memory training program available,
-                  with 120+ peer-reviewed studies and 200,000+ users across 20 countries. Research
-                  shows gains comparable to two years of typical cognitive development. We review
-                  your child&apos;s evaluation profile and determine whether Cogmed is the right
-                  fit for their specific needs.
+                <p className="text-navy/60 text-xs leading-relaxed">
+                  Created by neuroscientist Torkel Klingberg and colleagues at one of the
+                  world&apos;s leading medical universities in Stockholm. Over 20 years of
+                  continuous research and refinement — not a startup experiment, but a
+                  peer-reviewed science project that became a program.
                 </p>
               </div>
+
+              <div className="bg-white/70 rounded-xl p-4 sm:p-5 border border-teal/15 space-y-2">
+                <div className="flex items-center gap-2 mb-1">
+                  <TrendingUp className="w-4 h-4 text-teal shrink-0" />
+                  <p className="text-xs font-bold text-teal uppercase tracking-wider">
+                    Rigorously Validated
+                  </p>
+                </div>
+                <p className="text-navy font-bold text-sm leading-snug">
+                  120+ peer-reviewed studies
+                </p>
+                <p className="text-navy/60 text-xs leading-relaxed">
+                  Published in Nature Neuroscience and Science — the most selective journals
+                  in the world. Validated through randomized controlled trials using the same
+                  neuropsychological tests used to diagnose ADHD. Recognized as an approved
+                  medical device across 20+ countries.
+                </p>
+              </div>
+
+              <div className="bg-white/70 rounded-xl p-4 sm:p-5 border border-teal/15 space-y-2">
+                <div className="flex items-center gap-2 mb-1">
+                  <GraduationCap className="w-4 h-4 text-gold shrink-0" />
+                  <p className="text-xs font-bold text-gold uppercase tracking-wider">
+                    Proven Student Outcomes
+                  </p>
+                </div>
+                <p className="text-navy font-bold text-sm leading-snug">
+                  Gains equal to 2 years of development
+                </p>
+                <p className="text-navy/60 text-xs leading-relaxed">
+                  Students scored 20+ percentile points higher on standardized tests with no
+                  other interventions. A study of 572 children found math gains equivalent to
+                  a full year of extra progress. At 3 years post-training: 50% higher odds of
+                  placement in advanced academic tracks.
+                </p>
+              </div>
+            </div>
+
+            {/* Link */}
+            <div className="pt-1">
+              <a
+                href="https://www.cogmed.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal hover:text-blue transition-colors duration-150"
+              >
+                Learn more at cogmed.com
+                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+              </a>
             </div>
           </motion.div>
 
