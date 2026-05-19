@@ -153,9 +153,9 @@ const challenges: Challenge[] = [
     icon: Eye,
     color: "text-coral",
     bgColor: "bg-coral/10",
-    tagline: "Working memory can be trained and strategies can compensate.",
+    tagline: "Working memory can be trained — and the research is remarkable.",
     description:
-      "Working memory is the mental workspace where we hold and manipulate information. When it's limited, multi-step instructions, math, and reading comprehension all become harder.",
+      "Working memory is the brain's mental whiteboard — where we hold and manipulate information in real time. When it's limited, multi-step instructions, math, and reading comprehension all become harder. Crucially, it's one of the few cognitive capacities that is directly trainable.",
     signs: [
       "Forgetting instructions before completing them",
       "Losing place while reading",
@@ -171,10 +171,10 @@ const challenges: Challenge[] = [
       "Emotional memory — deep recall of meaningful events",
     ],
     whatHelps: [
+      "Targeted working memory training — evidence-based, directly trainable",
       "Chunking information into smaller pieces",
       "Multi-sensory encoding strategies",
       "Written reminders and visual systems",
-      "Movement-based learning to engage procedural memory",
     ],
   },
   {

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
-import { Sparkles, Clock, RefreshCw, GraduationCap, ArrowRight } from "lucide-react";
+import { Sparkles, Clock, RefreshCw, GraduationCap, FileText, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const journeys = [
@@ -52,6 +52,17 @@ const journeys = [
     bg: "bg-lavender/10",
     activeBorder: "border-lavender",
   },
+  {
+    id: "psych-eval",
+    icon: FileText,
+    headline: "We have a psych eval we don't understand",
+    sub: "Testing done · Now what?",
+    description:
+      "That 30-page report is sitting on your desk full of scores you can't interpret. Let's decode it together and turn it into an action plan.",
+    color: "text-coral",
+    bg: "bg-coral/10",
+    activeBorder: "border-coral",
+  },
 ];
 
 // Personalized context that appears when a card is selected
@@ -82,6 +93,12 @@ const contexts: Record<
     sub: "There's still time to rewrite the story — and build the real skills your teenager needs before the stakes of college and independence arrive.",
     cta: "Build a Teen Strategy",
     note: "Free · Age-appropriate · Self-advocacy focused",
+  },
+  "psych-eval": {
+    headline: "Your child's evaluation is the most important document you'll receive.",
+    sub: "Every score is a clue — about how your child learns, what's getting in the way, and which interventions will actually help. We decode the whole report in plain English and turn it into a school advocacy plan.",
+    cta: "Book a Free Eval Review Session",
+    note: "Free · We explain every score · No report too complicated",
   },
 };
 
@@ -115,7 +132,7 @@ export default function JourneySelector() {
           {/* Journey cards */}
           <motion.div
             variants={staggerContainer}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4"
           >
             {journeys.map((journey) => {
               const Icon = journey.icon;

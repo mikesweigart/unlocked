@@ -23,7 +23,7 @@ const steps = [
   },
   {
     number: "04", icon: Dumbbell, title: "Train", subtitle: "Strengthen learning skills",
-    description: "Through targeted practice and neuroscience-backed techniques, we actively strengthen the cognitive skills that make learning easier and more enjoyable.",
+    description: "Through evidence-based cognitive training — including targeted working memory exercises shown to produce lasting gains — we actively build the specific skills your child's profile shows are lagging. The brain is changeable at any age.",
     color: "text-lavender", bgColor: "bg-lavender/10", borderColor: "border-lavender/30", dotColor: "bg-lavender",
   },
   {

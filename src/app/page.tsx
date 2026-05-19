@@ -6,6 +6,7 @@ import JourneySelector from "@/components/sections/JourneySelector";
 import EmpathySection from "@/components/sections/EmpathySection";
 import ChildInnerWorld from "@/components/sections/ChildInnerWorld";
 import ChallengeCards from "@/components/sections/ChallengeCards";
+import PsychEvalSection from "@/components/sections/PsychEvalSection";
 import BrainStrengths from "@/components/sections/BrainStrengths";
 import AssessmentCTA from "@/components/sections/AssessmentCTA";
 import HowItWorks from "@/components/sections/HowItWorks";
@@ -35,28 +36,31 @@ export default function Home() {
         {/* 5. Challenge cards — name the diagnosis, reframe it */}
         <ChallengeCards />
 
-        {/* 6. Brain Strengths — the reframe: same wiring, different story */}
+        {/* 6. Psych Eval — decode the report, working memory training */}
+        <PsychEvalSection />
+
+        {/* 7. Brain Strengths — the reframe: same wiring, different story */}
         <BrainStrengths />
 
-        {/* 7. Assessment CTA — peak curiosity moment right after the reframe */}
+        {/* 8. Assessment CTA — peak curiosity moment right after the reframe */}
         <AssessmentCTA />
 
-        {/* 8. How It Works — the plan, simple and clear */}
+        {/* 9. How It Works — the plan, simple and clear */}
         <HowItWorks />
 
-        {/* 9. Testimonials — social proof with transformation arcs */}
+        {/* 10. Testimonials — social proof with transformation arcs */}
         <Testimonials />
 
-        {/* 10. Your First 30 Days — process evidence, trust building */}
+        {/* 11. Your First 30 Days — process evidence, trust building */}
         <ThirtyDays />
 
-        {/* 11. Parent Guide — free resource, lead capture */}
+        {/* 12. Parent Guide — free resource, lead capture */}
         <ParentGuide />
 
-        {/* 12. About — the guide's empathy and authority */}
+        {/* 13. About — the guide's empathy and authority */}
         <AboutSection />
 
-        {/* 13. Final CTA — the call to action, the stakes */}
+        {/* 14. Final CTA — the call to action, the stakes */}
         <FinalCTA />
       </main>
       <Footer />
