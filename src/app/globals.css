@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand colors */
+  --color-navy: #1B2A4A;
+  --color-navy-light: #243558;
+  --color-navy-dark: #111d33;
+  --color-blue: #4A90D9;
+  --color-blue-light: #6aaae3;
+  --color-blue-dark: #2f6fb8;
+  --color-teal: #5BBCB4;
+  --color-teal-light: #7ecdc6;
+  --color-teal-dark: #3d9b93;
+  --color-gold: #D4A853;
+  --color-gold-light: #e0bc74;
+  --color-gold-dark: #b88a34;
+  --color-lavender: #B8A9D4;
+  --color-coral: #E8877C;
+  --color-green: #6BBF8A;
+
+  /* Backgrounds */
+  --color-off-white: #FAFBFC;
+  --color-gray-blue: #F0F4F8;
+  --color-gray-mid: #E2E8F0;
+
+  /* Typography */
+  --font-sans: var(--font-jakarta);
+  --font-display: var(--font-jakarta);
+
+  /* Spacing */
+  --spacing-section: 5rem;
+
+  /* Border radius */
+  --radius-card: 1rem;
+  --radius-button: 0.5rem;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px -4px rgba(27, 42, 74, 0.08);
+  --shadow-card-hover: 0 12px 40px -8px rgba(27, 42, 74, 0.18);
+  --shadow-glow-blue: 0 0 32px rgba(74, 144, 217, 0.3);
+  --shadow-glow-teal: 0 0 32px rgba(91, 188, 180, 0.3);
+  --shadow-glow-gold: 0 0 24px rgba(212, 168, 83, 0.4);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAFBFC;
+  --foreground: #1B2A4A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid #4A90D9;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0F4F8;
+}
+::-webkit-scrollbar-thumb {
+  background: #B8A9D4;
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(91, 188, 180, 0.25);
+  color: #1B2A4A;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #4A90D9 0%, #5BBCB4 50%, #D4A853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section entrance */
+.section-enter {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Neural glow */
+.neural-glow {
+  filter: drop-shadow(0 0 12px rgba(91, 188, 180, 0.5));
 }
