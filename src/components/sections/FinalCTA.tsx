@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { staggerContainer, fadeUp } from "@/lib/animations";
-import { ArrowRight, Phone, Check, Shield, MessageSquare } from "lucide-react";
+import { ArrowRight, Phone, Check, Shield, MessageSquare, Clock, CalendarCheck, Lightbulb, Users } from "lucide-react";
 
 // ─── Replace with your Web3Forms access key from web3forms.com (free) ─────────
 const WEB3FORMS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
@@ -82,6 +82,13 @@ export default function FinalCTA() {
         >
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center space-y-4">
+            {/* Availability signal */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal/15 border border-teal/30 text-teal text-xs sm:text-sm font-semibold">
+              <span className="w-2 h-2 rounded-full bg-teal animate-pulse shrink-0" />
+              <Users className="w-3.5 h-3.5 shrink-0" />
+              Currently accepting new families — limited spots available
+            </div>
+
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
               You Don&apos;t Have to Navigate This{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-gold">
@@ -92,6 +99,54 @@ export default function FinalCTA() {
               One free conversation can turn months of confusion into a clear path forward.
               No pressure, no clinical jargon — just clarity, compassion, and a plan.
             </p>
+          </motion.div>
+
+          {/* What happens next */}
+          <motion.div variants={fadeUp}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+              {[
+                {
+                  icon: Clock,
+                  step: "01",
+                  title: "We read your message",
+                  desc: "Every submission is reviewed personally — usually within a few hours. We pay attention to what you write.",
+                  color: "text-teal",
+                  bg: "bg-teal/10",
+                },
+                {
+                  icon: CalendarCheck,
+                  step: "02",
+                  title: "We schedule your call",
+                  desc: "A 30-minute clarity call at a time that works for you. No intake forms, no prep work required.",
+                  color: "text-blue",
+                  bg: "bg-blue/10",
+                },
+                {
+                  icon: Lightbulb,
+                  step: "03",
+                  title: "You leave with clarity",
+                  desc: "At minimum, one specific insight and a clear next step. Most parents say it's the most useful 30 minutes they've had.",
+                  color: "text-gold",
+                  bg: "bg-gold/10",
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.step} className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-9 h-9 rounded-xl ${item.bg} flex items-center justify-center shrink-0`}>
+                        <Icon className={`w-4 h-4 ${item.color}`} />
+                      </div>
+                      <span className={`text-xs font-bold uppercase tracking-widest ${item.color}`}>
+                        Step {item.step}
+                      </span>
+                    </div>
+                    <p className="text-white font-bold text-sm leading-snug">{item.title}</p>
+                    <p className="text-white/55 text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
           </motion.div>
 
           {/* Form */}

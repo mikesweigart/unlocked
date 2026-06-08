@@ -21,6 +21,7 @@ const navLinks = [
   },
   { label: "Psych Eval + Cogmed", href: "#psych-eval" },
   { label: "Brain Strengths", href: "#strengths" },
+  { label: "FAQ", href: "#faq" },
   { label: "About", href: "#about" },
 ];
 

@@ -14,6 +14,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import ThirtyDays from "@/components/sections/ThirtyDays";
 import ParentGuide from "@/components/sections/ParentGuide";
 import AboutSection from "@/components/sections/AboutSection";
+import FAQSection from "@/components/sections/FAQSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
@@ -60,7 +61,10 @@ export default function Home() {
         {/* 13. About — the guide's empathy and authority */}
         <AboutSection />
 
-        {/* 14. Final CTA — the call to action, the stakes */}
+        {/* 14. FAQ — answer every objection before it becomes a reason to leave */}
+        <FAQSection />
+
+        {/* 15. Final CTA — the call to action, the stakes */}
         <FinalCTA />
       </main>
       <Footer />
