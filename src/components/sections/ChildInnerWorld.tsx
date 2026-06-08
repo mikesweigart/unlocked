@@ -55,7 +55,7 @@ export default function ChildInnerWorld() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-16 sm:py-24 bg-navy overflow-hidden">
+    <section className="py-16 sm:py-24 bg-[#0e1c38] overflow-hidden border-t border-white/8">
       <div ref={ref} className="max-w-5xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}

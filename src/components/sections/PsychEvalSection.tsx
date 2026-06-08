@@ -160,7 +160,7 @@ export default function PsychEvalSection() {
   const selected = evalIndices.find((i) => i.id === selectedId) ?? null;
 
   return (
-    <section id="psych-eval" className="py-16 sm:py-24 bg-off-white border-b border-gray-blue">
+    <section id="psych-eval" className="py-16 sm:py-24 bg-white border-b border-gray-blue">
       <div ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           variants={staggerContainer}

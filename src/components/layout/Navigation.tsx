@@ -117,15 +117,15 @@ export default function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <a
-              href="#assessment"
+            <Link
+              href="/assessment"
               className={cn(
                 "text-sm font-medium transition-colors duration-200",
                 scrolled ? "text-navy hover:text-teal" : "text-white/90 hover:text-white"
               )}
             >
               Free Assessment
-            </a>
+            </Link>
             <a
               href="#contact"
               className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-teal to-blue text-white text-sm font-semibold hover:shadow-lg hover:scale-[1.02] transition-all duration-200 active:scale-[0.98]"
@@ -206,13 +206,13 @@ export default function Navigation() {
               </nav>
 
               <div className="px-4 pb-6 pt-4 space-y-3 border-t border-gray-blue shrink-0">
-                <a
-                  href="#assessment"
+                <Link
+                  href="/assessment"
                   onClick={closeMenu}
                   className="flex items-center justify-center w-full px-5 py-4 rounded-xl border-2 border-teal text-teal font-semibold hover:bg-teal hover:text-white transition-all duration-200 min-h-[52px]"
                 >
                   Free Brain Strengths Assessment
-                </a>
+                </Link>
                 <a
                   href="#contact"
                   onClick={closeMenu}

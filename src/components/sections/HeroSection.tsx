@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import { staggerContainer, fadeUp } from "@/lib/animations";
+import Link from "next/link";
 
 interface Particle {
   x: number; y: number; vx: number; vy: number; size: number; opacity: number;
@@ -153,14 +154,16 @@ export default function HeroSection() {
               Schedule a Free Consultation
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200 shrink-0" />
             </motion.a>
-            <motion.a
-              href="#assessment"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 rounded-xl border-2 border-white/30 text-white font-semibold text-base sm:text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-200 backdrop-blur-sm min-h-[52px]"
-            >
-              Discover Brain Strengths
-            </motion.a>
+            <Link href="/assessment">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-4 rounded-xl border-2 border-white/30 text-white font-semibold text-base sm:text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-200 backdrop-blur-sm min-h-[52px] cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 shrink-0" />
+                Take the Free Brain Quiz
+              </motion.div>
+            </Link>
           </motion.div>
 
           {/* Trust indicators */}
@@ -168,7 +171,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-white/55 text-xs sm:text-sm"
           >
-            {["500+ families supported", "Evidence-based approaches", "Free initial consultation"].map((item) => (
+            {["500+ families supported", "Cogmed-certified practitioners", "Free initial consultation"].map((item) => (
               <span key={item} className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0" />
                 {item}

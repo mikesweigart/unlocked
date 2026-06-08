@@ -95,23 +95,32 @@ function StatCounter({
   );
 }
 
-// ── Testimonial snippets ──────────────────────────────────────────────────────
+// ── What Becomes Possible ─────────────────────────────────────────────────────
 
-const snippets = [
+const transformations = [
   {
-    quote: "We finally have a roadmap instead of just guessing every day.",
-    name: "Sarah M.",
-    tag: "Parent of a child with ADHD",
+    before: "Homework takes 3 hours and ends in screaming",
+    after: "45 minutes. He sets his own timer now.",
+    when: "Week 4",
+    color: "text-teal",
+    border: "border-teal/25",
+    bg: "bg-teal/5",
   },
   {
-    quote: "For the first time, my son sees himself as capable — not broken. That change is everything.",
-    name: "Marcus T.",
-    tag: "Father of a dyslexic learner",
+    before: "IEP meetings leave you feeling steamrolled and invisible",
+    after: "You walk in with a script. You walk out with new accommodations.",
+    when: "Week 3",
+    color: "text-blue",
+    border: "border-blue/25",
+    bg: "bg-blue/5",
   },
   {
-    quote: "The way they explained executive functioning made me understand my daughter for the first time in years.",
-    name: "Jennifer K.",
-    tag: "Mother of a 3rd grader",
+    before: "Your child calls herself stupid every single day",
+    after: "She describes herself as a 'visual thinker.' Unprompted.",
+    when: "Month 3",
+    color: "text-gold",
+    border: "border-gold/25",
+    bg: "bg-gold/5",
   },
 ];
 
@@ -202,26 +211,33 @@ export default function EmpathySection() {
               </motion.div>
             </motion.div>
 
-            {/* Testimonial snippets */}
-            <motion.div
-              variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"
-            >
-              {snippets.map((t) => (
-                <motion.div
-                  key={t.name}
-                  variants={fadeUp}
-                  className="bg-gray-blue/50 rounded-2xl p-6 space-y-4 hover:bg-gray-blue transition-colors duration-200"
-                >
-                  <p className="text-navy/80 leading-relaxed italic text-sm sm:text-base">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="font-semibold text-navy text-sm">{t.name}</p>
-                    <p className="text-navy/50 text-xs">{t.tag}</p>
-                  </div>
-                </motion.div>
-              ))}
+            {/* What becomes possible */}
+            <motion.div variants={fadeUp} className="space-y-4">
+              <p className="text-center text-xs font-bold text-navy/30 uppercase tracking-widest">
+                With the right guide, this changes
+              </p>
+              <motion.div
+                variants={staggerContainer}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4"
+              >
+                {transformations.map((t, i) => (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    className={`rounded-2xl border ${t.border} ${t.bg} p-5 space-y-3`}
+                  >
+                    <p className="text-navy/35 text-xs sm:text-sm leading-relaxed line-through">
+                      {t.before}
+                    </p>
+                    <p className="text-navy/85 font-semibold text-sm sm:text-base leading-relaxed">
+                      {t.after}
+                    </p>
+                    <span className={`inline-block text-xs font-bold uppercase tracking-wider ${t.color}`}>
+                      {t.when}
+                    </span>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
