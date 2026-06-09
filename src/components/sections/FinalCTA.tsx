@@ -125,7 +125,7 @@ export default function FinalCTA() {
                   icon: Lightbulb,
                   step: "03",
                   title: "You leave with clarity",
-                  desc: "At minimum, one specific insight and a clear next step. Most parents say it's the most useful 30 minutes they've had.",
+                  desc: "At minimum, one specific insight and a clear next step — designed to be the most useful 30 minutes you've had since the diagnosis.",
                   color: "text-gold",
                   bg: "bg-gold/10",
                 },

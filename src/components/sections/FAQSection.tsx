@@ -41,7 +41,7 @@ const faqs = [
   {
     category: "Results & Timeline",
     q: "How long until we see results?",
-    a: "Most families notice a meaningful shift within the first two to three sessions — usually in how they understand and respond to behaviors at home. That shift changes the dynamics quickly. Measurable academic or behavioral improvement typically appears within 4–8 weeks of consistent engagement. The ThirtyDays timeline on this page gives you an honest, milestone-by-milestone picture.",
+    a: "Evidence-based educational support typically produces meaningful shifts within the first few sessions — usually in how families understand and respond to behaviors at home. Measurable academic or behavioral improvement is generally expected within 4–8 weeks of consistent engagement. The timeline on this page gives you an honest, milestone-by-milestone picture of what that journey looks like.",
   },
   {
     category: "Investment",
@@ -56,7 +56,7 @@ const faqs = [
   {
     category: "Investment",
     q: "Can you help with IEP meetings and school advocacy?",
-    a: "Yes — and this is one of the things we do that most consultants don't. We prepare you for IEP meetings with a clear script, specific accommodation language, and the confidence to advocate for what your child is legally entitled to. Many families come to us specifically because they've left too many meetings feeling steamrolled.",
+    a: "Yes — and this is a core part of what we do. We prepare you for IEP meetings with a clear script, specific accommodation language, and the confidence to advocate for what your child is legally entitled to. Many parents reach out to us specifically because they've left too many meetings feeling overwhelmed and unheard.",
   },
 ];
 

@@ -114,14 +114,17 @@ export default function Testimonials() {
           {/* Header */}
           <motion.div variants={fadeUp} className="text-center space-y-3">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-navy leading-tight">
-              Real Families.{" "}
+              What Becomes Possible.{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
-                Real Transformation.
+                When You Have the Right Guide.
               </span>
             </h2>
             <p className="text-navy/55 text-base sm:text-lg leading-relaxed">
-              These aren&apos;t testimonials about UnlockEd. They&apos;re stories about
-              what becomes possible when a child finally gets the right guide.
+              These are illustrative outcomes — the kinds of transformations that
+              evidence-based support makes possible for families like yours.
+            </p>
+            <p className="text-navy/30 text-xs">
+              Illustrative scenarios · Representative of evidence-based outcomes
             </p>
           </motion.div>
 

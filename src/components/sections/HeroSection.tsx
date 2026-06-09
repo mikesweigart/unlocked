@@ -171,7 +171,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-white/55 text-xs sm:text-sm"
           >
-            {["500+ families supported", "Cogmed-certified practitioners", "Free initial consultation"].map((item) => (
+            {["Backed by 20+ years of research", "Cogmed-certified methodology", "Free initial consultation"].map((item) => (
               <span key={item} className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0" />
                 {item}

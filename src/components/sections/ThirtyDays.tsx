@@ -12,7 +12,7 @@ const milestones = [
     title: "The Clarity Session",
     description:
       "You finally understand what's actually happening in your child's brain — explained in plain language, not clinical labels. The diagnosis stops being a verdict and starts being a map.",
-    emotional: "Most parents say: 'I finally stopped feeling like it was my fault.'",
+    emotional: "This is often the first moment you stop carrying the weight of feeling responsible.",
     color: "text-teal",
     bg: "bg-teal/10",
     border: "border-teal/25",
@@ -24,7 +24,7 @@ const milestones = [
     title: "The Strengths Map",
     description:
       "Your child hears something true and specific about themselves — not what's broken, but what makes their mind remarkable. This moment matters more than most parents expect.",
-    emotional: "Parents often say: 'He stood up straighter. First time I'd seen that in months.'",
+    emotional: "Many families mark a single moment — a word, a posture, a look — as when everything started to shift.",
     color: "text-blue",
     bg: "bg-blue/10",
     border: "border-blue/25",
@@ -36,7 +36,7 @@ const milestones = [
     title: "The School Strategy",
     description:
       "You walk into the next school meeting with a clear script, specific accommodation requests, and the language to advocate confidently — instead of hoping the system will figure it out.",
-    emotional: "Parents report: 'I stopped dreading those meetings.'",
+    emotional: "The meeting table stops feeling like enemy territory. You come prepared. It shows.",
     color: "text-gold",
     bg: "bg-gold/10",
     border: "border-gold/25",
@@ -48,7 +48,7 @@ const milestones = [
     title: "The First Shift",
     description:
       "One thing is measurably easier. Maybe homework. Maybe mornings. Maybe the meltdowns are shorter. Progress isn't linear — but something has clearly moved. You notice it.",
-    emotional: "Most parents say: 'I slept well for the first time in months.'",
+    emotional: "Progress is rarely dramatic at first — but it's visible. And it lands differently than you expect.",
     color: "text-lavender",
     bg: "bg-lavender/10",
     border: "border-lavender/25",
@@ -60,7 +60,7 @@ const milestones = [
     title: "The Turning Point",
     description:
       "Your child uses a strategy on their own — unprompted. They describe themselves using a strength, not a label. The old story about who they are as a learner is beginning to loosen its grip.",
-    emotional: "Parents say: 'Hope stopped being something I just said. I actually felt it.'",
+    emotional: "This is where hope stops being something you perform — and becomes something you actually feel.",
     color: "text-coral",
     bg: "bg-coral/10",
     border: "border-coral/25",

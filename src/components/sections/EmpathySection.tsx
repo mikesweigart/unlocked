@@ -203,9 +203,9 @@ export default function EmpathySection() {
               </motion.div>
               <motion.div variants={fadeUp}>
                 <StatCounter
-                  target={500}
+                  target={120}
                   suffix="+"
-                  label="families supported by UnlockEd"
+                  label="peer-reviewed studies backing our methods"
                   icon={Heart}
                 />
               </motion.div>

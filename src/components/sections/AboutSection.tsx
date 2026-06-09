@@ -9,9 +9,9 @@ const credentials = [
   { icon: Award, text: "Certified Educational Therapist" },
   { icon: Brain, text: "Cogmed Certified Practitioner" },
   { icon: GraduationCap, text: "M.Ed. Special Education" },
-  { icon: Users, text: "500+ Families Supported" },
   { icon: BookOpen, text: "Evidence-Based Frameworks" },
   { icon: Heart, text: "Compassion-First Approach" },
+  { icon: Users, text: "Mental Health Professional Background" },
 ];
 
 export default function AboutSection() {
@@ -117,7 +117,7 @@ export default function AboutSection() {
                     { label: "Certified Educational Therapist", color: "text-teal" },
                     { label: "Cogmed Certified Practitioner", color: "text-blue" },
                     { label: "M.Ed. Special Education", color: "text-gold" },
-                    { label: "10+ Years Supporting Families", color: "text-lavender" },
+                    { label: "Mental Health Professional Background", color: "text-lavender" },
                   ].map((c) => (
                     <div key={c.label} className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-teal shrink-0" />
