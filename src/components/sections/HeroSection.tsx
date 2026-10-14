@@ -26,7 +26,7 @@ export default function HeroSection() {
             Turning learning abilities into action
           </p>
 
-          <h1 className="mt-5 font-display text-[2.5rem] leading-[1.08] tracking-[-0.015em] text-ink sm:text-[3.4rem] lg:text-[3.9rem] font-medium">
+          <h1 className="mt-5 font-display text-[2.4rem] leading-[1.08] tracking-[-0.02em] text-ink sm:text-[3.3rem] lg:text-[3.75rem] font-bold">
             Your child learns differently.{" "}
             <span className="relative inline-block">
               You don&apos;t have to

@@ -35,7 +35,7 @@ export default function SoundFamiliar() {
         </ul>
 
         <Reveal className="mt-12 rounded-3xl bg-sand px-6 py-8 sm:px-10 sm:py-10">
-          <p className="max-w-3xl font-display text-xl leading-snug text-ink sm:text-2xl">
+          <p className="max-w-3xl font-display font-semibold text-xl leading-snug text-ink sm:text-2xl">
             Whether your child has a formal diagnosis, or you simply sense that they need
             help and aren&apos;t sure where to begin, UnlockEd was created to help you make
             sense of it all.

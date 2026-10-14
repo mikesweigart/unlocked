@@ -236,7 +236,7 @@ export default function ChallengeCards() {
                 onClick={() => setOpenId(d.id)}
                 className="group flex h-full w-full flex-col rounded-3xl border border-line bg-white p-6 text-left transition-colors duration-200 hover:border-ink/30"
               >
-                <h3 className="font-display text-[1.45rem] text-ink">{d.name}</h3>
+                <h3 className="font-display text-[1.3rem] text-ink">{d.name}</h3>
                 <p className="mt-2 flex-1 text-[16px] leading-relaxed text-ink-soft">{d.line}</p>
                 <span className="mt-5 inline-flex items-center gap-1.5 text-[15px] font-semibold text-periwinkle-deep">
                   Read more

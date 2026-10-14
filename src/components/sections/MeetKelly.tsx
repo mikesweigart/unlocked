@@ -59,7 +59,7 @@ export default function MeetKelly() {
           </Reveal>
 
           <Reveal className="my-10 border-l-[3px] border-periwinkle pl-6">
-            <p className="max-w-xl font-display text-[1.6rem] leading-snug text-ink sm:text-[1.9rem]">
+            <p className="max-w-xl font-display font-semibold text-[1.5rem] leading-snug text-ink sm:text-[1.8rem]">
               She is known for advocating for students as if they were her own.
             </p>
           </Reveal>

@@ -115,7 +115,7 @@ export default function Navigation() {
                     <a
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className="flex min-h-[56px] items-center font-display text-xl text-ink"
+                      className="flex min-h-[56px] items-center font-display font-semibold text-xl text-ink"
                     >
                       {l.label}
                     </a>

@@ -83,7 +83,7 @@ export default function Services() {
           {services.map((s, i) => (
             <Reveal key={s.name} delay={(i % 2) * 0.05} className="border-t border-line py-8">
               <p className="text-[13px] font-medium text-ink-soft">{s.forWhom}</p>
-              <h3 className="mt-1.5 font-display text-[1.55rem] leading-snug text-ink">{s.name}</h3>
+              <h3 className="mt-1.5 font-display text-[1.4rem] leading-snug text-ink">{s.name}</h3>
               <p className="mt-3 text-[16px] leading-relaxed text-ink-soft sm:text-[17px]">{s.text}</p>
               {s.list && (
                 <ul className="mt-4 flex flex-wrap gap-2">

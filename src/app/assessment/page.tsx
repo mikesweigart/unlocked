@@ -293,7 +293,7 @@ function WelcomeScreen({ onStart }: { onStart: () => void }) {
         <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-periwinkle-deep">
           Strengths Snapshot · 3 minutes
         </p>
-        <h1 className="font-display text-[2.3rem] font-medium leading-[1.1] text-ink sm:text-5xl">
+        <h1 className="font-display text-[2.2rem] font-bold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[2.9rem]">
           What is your child good at?
         </h1>
         <p className="text-lg leading-relaxed text-ink-soft">
@@ -458,7 +458,7 @@ function ResultsScreen({ results, onRetake }: { results: Results; onRetake: () =
         <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-periwinkle-deep">
           Your Strengths Snapshot
         </p>
-        <h2 className="font-display text-[2.1rem] font-medium leading-tight text-ink sm:text-4xl">
+        <h2 className="font-display text-[2rem] font-bold leading-tight tracking-[-0.02em] text-ink sm:text-[2.4rem]">
           Here&apos;s what stood out about your child.
         </h2>
         <p className="text-[16px] text-ink-soft">Tap a strength to read more.</p>
@@ -532,7 +532,7 @@ function ResultsScreen({ results, onRetake }: { results: Results; onRetake: () =
       </div>
 
       <div className="rounded-3xl bg-ink p-6 sm:p-8">
-        <p className="font-display text-xl leading-snug text-white sm:text-2xl">
+        <p className="font-display font-semibold text-xl leading-snug text-white sm:text-2xl">
           The same wiring that makes some things hard often comes with real strengths.
           Knowing them gives you, and your child, somewhere to build from.
         </p>

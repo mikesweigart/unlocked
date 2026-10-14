@@ -81,7 +81,7 @@ function Column({ heading, items }: { heading: string; items: Item[] }) {
               className="group flex items-start justify-between gap-4 py-5"
             >
               <span>
-                <span className="block font-display text-[1.2rem] leading-snug text-ink group-hover:text-periwinkle-deep transition-colors">
+                <span className="block font-display font-semibold text-[1.1rem] leading-snug text-ink group-hover:text-periwinkle-deep transition-colors">
                   {it.title}
                 </span>
                 {it.by && <span className="mt-0.5 block text-[14px] text-ink-soft">{it.by}</span>}

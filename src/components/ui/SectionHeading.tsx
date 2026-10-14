@@ -27,7 +27,7 @@ export default function SectionHeading({
       )}
       <h2
         className={cn(
-          "font-display text-[2rem] leading-[1.15] sm:text-[2.6rem] font-medium tracking-[-0.01em]",
+          "font-display text-[1.95rem] leading-[1.15] sm:text-[2.5rem] tracking-[-0.015em]",
           tone === "dark" ? "text-ink" : "text-white"
         )}
       >
