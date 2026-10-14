@@ -1,92 +1,70 @@
 import Link from "next/link";
-import { Brain } from "lucide-react";
+import { BOOKING_URL, EMAIL, EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
+import { Wordmark } from "./Navigation";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy border-t border-white/10 py-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-          {/* Brand */}
-          <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal to-blue flex items-center justify-center">
-                <Brain className="w-4.5 h-4.5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">
-                Unlock<span className="text-teal">Ed</span>
-              </span>
+    <footer className="no-print border-t border-line bg-cream">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-14">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div className="space-y-4">
+            <Link href="/" aria-label="UnlockEd home">
+              <Wordmark />
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed max-w-xs">
-              Turning your learning ability into action. Neuroscience-backed guidance
-              for families navigating learning challenges.
-            </p>
-            <p className="text-white/30 text-xs">
-              &copy; {new Date().getFullYear()} UnlockEd. All rights reserved.
+            <p className="max-w-xs text-[15px] leading-relaxed text-ink-soft">
+              Turning learning abilities into action. Educational support for families
+              in Peachtree Corners and the Atlanta area.
             </p>
           </div>
 
-          {/* Quick links */}
           <div className="space-y-3">
-            <h4 className="text-white/80 text-xs font-bold uppercase tracking-widest">
-              Explore
-            </h4>
-            <ul className="space-y-2">
+            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-soft">Explore</p>
+            <ul className="space-y-2 text-[15px]">
               {[
-                { label: "How It Works", href: "#how-it-works" },
-                { label: "Learning Challenges", href: "#challenges" },
-                { label: "Brain Strengths", href: "#strengths" },
-                { label: "Free Assessment", href: "/assessment" },
-                { label: "Free Parent Guide", href: "#guide" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/50 text-sm hover:text-teal transition-colors duration-150"
-                  >
-                    {link.label}
+                { label: "About Kelly", href: "/#about" },
+                { label: "How it works", href: "/#help" },
+                { label: "Services", href: "/#services" },
+                { label: "Understanding evaluations", href: "/#evaluations" },
+                { label: "Resources", href: "/#resources" },
+                { label: "Strengths Snapshot", href: "/assessment" },
+              ].map((l) => (
+                <li key={l.href}>
+                  <a href={l.href} className="text-ink hover:text-periwinkle-deep transition-colors">
+                    {l.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="space-y-3">
-            <h4 className="text-white/80 text-xs font-bold uppercase tracking-widest">
-              Get Help
-            </h4>
-            <ul className="space-y-2">
-              {[
-                { label: "Schedule Consultation", href: "#contact" },
-                { label: "About UnlockEd", href: "#about" },
-                { label: "Resources", href: "#resources" },
-                { label: "Privacy Policy", href: "/privacy" },
-                { label: "Terms of Service", href: "/terms" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/50 text-sm hover:text-teal transition-colors duration-150"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-ink-soft">Contact</p>
+            <ul className="space-y-2 text-[15px]">
+              <li>
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-ink hover:text-periwinkle-deep transition-colors">
+                  Book online
+                </a>
+              </li>
+              <li>
+                <a href={PHONE_HREF} className="text-ink hover:text-periwinkle-deep transition-colors">
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={EMAIL_HREF} className="break-all text-ink hover:text-periwinkle-deep transition-colors">
+                  {EMAIL}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <p>
-            UnlockEd is an educational support service, not a medical provider. Always
-            consult qualified professionals for clinical diagnoses.
+        <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-[13px] leading-relaxed text-ink-soft sm:flex-row sm:justify-between">
+          <p className="max-w-2xl">
+            UnlockEd provides educational support and guidance. It is not a medical or
+            mental health treatment service, and nothing on this site is a diagnosis.
           </p>
-          <p className="shrink-0">
-            Built with{" "}
-            <span className="text-teal/60">neuroscience</span> and{" "}
-            <span className="text-gold/60">heart</span>
-          </p>
+          <p className="shrink-0">&copy; {new Date().getFullYear()} UnlockEd</p>
         </div>
       </div>
     </footer>

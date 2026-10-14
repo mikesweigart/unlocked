@@ -1,59 +1,35 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { staggerContainer, fadeUp } from "@/lib/animations";
-import { ArrowRight, Brain, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/ui/Reveal";
 
 export default function AssessmentCTA() {
-  const { ref, isInView } = useScrollReveal(0.1);
-
   return (
-    <section id="assessment" className="py-14 sm:py-20 bg-gradient-to-r from-teal/10 via-blue/5 to-teal/10 border-y border-teal/15">
-      <div ref={ref} className="max-w-4xl mx-auto px-4 sm:px-6">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col md:flex-row items-center gap-10 justify-between"
-        >
-          {/* Left */}
-          <motion.div variants={fadeUp} className="space-y-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 text-teal font-semibold text-sm">
-              <Sparkles className="w-4 h-4" />
-              Free · 3 Minutes · Instant Results
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-navy leading-tight">
-              Discover Your Child&apos;s{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-blue">
-                Brain Strengths
-              </span>
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <Reveal className="grid items-center gap-8 rounded-3xl bg-periwinkle-wash px-6 py-10 sm:px-12 sm:py-12 md:grid-cols-[1.4fr_1fr]">
+          <div>
+            <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-periwinkle-deep">
+              Strengths Snapshot · 3 minutes
+            </p>
+            <h2 className="mt-3 font-display text-[1.9rem] leading-tight text-ink sm:text-[2.3rem]">
+              Start with what your child is good at.
             </h2>
-            <p className="text-navy/65 leading-relaxed max-w-md">
-              Our 15-question Brain Strengths Assessment maps what makes your child&apos;s
-              mind remarkable — not just what makes it challenging.
+            <p className="mt-3 max-w-xl text-[17px] leading-relaxed text-ink-soft">
+              Fifteen quick questions about how your child plays, learns, and bounces back.
+              You&apos;ll see the strengths that stand out. No email required.
             </p>
-          </motion.div>
-
-          {/* Right */}
-          <motion.div variants={fadeUp} className="flex flex-col gap-3 items-center md:items-start shrink-0">
-            <Link href="/assessment">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-base sm:text-lg hover:shadow-xl hover:shadow-teal/25 transition-all duration-200 cursor-pointer min-h-[52px]"
-              >
-                <Brain className="w-5 h-5" />
-                Take the Free Assessment
-                <ArrowRight className="w-5 h-5" />
-              </motion.div>
+          </div>
+          <div className="md:justify-self-end">
+            <Link
+              href="/assessment"
+              className="group inline-flex min-h-[48px] items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-[#123f82] transition-colors"
+            >
+              Take the Strengths Snapshot
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
-            <p className="text-xs text-navy/40 text-center">
-              No clinical labels · No email required to start
-            </p>
-          </motion.div>
-        </motion.div>
+            <p className="mt-3 text-[13px] text-ink-soft">A reflection for parents, not a test or diagnosis.</p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

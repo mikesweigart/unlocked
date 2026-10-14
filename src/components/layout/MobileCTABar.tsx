@@ -1,19 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Phone, X } from "lucide-react";
+import { BOOKING_URL, PHONE_HREF } from "@/lib/site";
 
 export default function MobileCTABar() {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.75);
+    const onScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY > document.documentElement.scrollHeight - 700;
+      setVisible(window.scrollY > window.innerHeight * 0.9 && !nearBottom);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -23,24 +26,32 @@ export default function MobileCTABar() {
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
-          transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1.0] }}
-          className="fixed bottom-0 left-0 right-0 z-50 lg:hidden"
+          transition={{ duration: 0.25 }}
+          className="no-print fixed inset-x-0 bottom-0 z-40 lg:hidden"
           style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
         >
-          <div className="bg-white/95 backdrop-blur-sm border-t border-gray-blue shadow-[0_-4px_16px_-2px_rgba(27,42,74,0.10)] px-3 py-2.5 flex items-center gap-2">
+          <div className="flex items-center gap-2 border-t border-line bg-cream/95 px-3 py-2.5 backdrop-blur">
             <a
-              href="#contact"
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-teal to-blue text-white font-semibold text-sm active:scale-[0.98] transition-all duration-200 min-h-[44px]"
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-[44px] flex-1 items-center justify-center rounded-full bg-ink text-[15px] font-semibold text-white"
             >
-              Start Free Consultation
-              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+              Book a session
+            </a>
+            <a
+              href={PHONE_HREF}
+              aria-label="Call UnlockEd"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/20 text-ink"
+            >
+              <Phone className="h-4 w-4" />
             </a>
             <button
               onClick={() => setDismissed(true)}
-              aria-label="Dismiss"
-              className="flex items-center justify-center w-10 h-10 rounded-xl text-navy/30 hover:text-navy/60 hover:bg-gray-blue/60 transition-colors duration-150 shrink-0"
+              aria-label="Hide booking bar"
+              className="flex h-11 w-9 shrink-0 items-center justify-center text-ink-soft"
             >
-              <X className="w-4 h-4" />
+              <X className="h-4 w-4" />
             </button>
           </div>
         </motion.div>
