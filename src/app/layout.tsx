@@ -19,10 +19,8 @@ const title = "UnlockEd | Educational Support for Families | Kelly Moore";
 const description =
   "UnlockEd is an educational support agency for families who suspect, or already know, their child learns differently. Founded by Kelly Moore in Peachtree Corners, Georgia.";
 
-const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-
 export const metadata: Metadata = {
-  metadataBase: new URL(productionHost ? `https://${productionHost}` : SITE_URL),
+  metadataBase: new URL(SITE_URL),
   title,
   description,
   keywords: [
