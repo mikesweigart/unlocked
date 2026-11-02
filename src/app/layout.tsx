@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+// Self-hosted (src/app/fonts, the latin variable file Google serves) rather
+// than next/font/google, which fetches it from Google at BUILD time. Google
+// Fonts sometimes answers with "/l/font?kit=" URLs that Turbopack cannot parse
+// (vercel/next.js #99114); the build fails, and a failed Vercel build freezes
+// production on the last good deploy without a word. Same CSS variable.
+const jakarta = localFont({
+  src: "./fonts/plus-jakarta-sans-latin.woff2",
+  weight: "200 800",
   variable: "--font-jakarta",
   display: "swap",
 });
